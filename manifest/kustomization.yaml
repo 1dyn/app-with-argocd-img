@@ -4,5 +4,5 @@ resources:
 
 images:
   - name: nginx
-    newName: nginx
-    newTag: "1.25"
+    newName: gksehddus202/app-with-argocd-img
+    newTag: "3188426"
