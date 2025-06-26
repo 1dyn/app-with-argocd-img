@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: argocd-img-container
-        image: gksehddus202/app-with-argocd-img:d7c079e9cda9f296bb8fd8476bf33b433b2537c7
+        image: gksehddus202/app-with-argocd-img:4129261cad6ff3893545cdcac1c9b3a2abefe6c6
