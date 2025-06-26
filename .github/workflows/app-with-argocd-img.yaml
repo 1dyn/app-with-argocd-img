@@ -59,7 +59,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${ SHORT_SHA }
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${SHORT_SHA}
 
   
   cd:
@@ -74,7 +74,7 @@ jobs:
         
     - name: Set up Image
       env:
-        DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${ SHORT_SHA }
+        DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${SHORT_SHA}
       run: |
         sed -i "s%s%image: .*/.*:.*%image: $DOCKER_IMAGE%" ./manifest/argocd-img-deployment.yaml
         
