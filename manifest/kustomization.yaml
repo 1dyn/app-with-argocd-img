@@ -3,6 +3,6 @@ resources:
   - argocd-img-service.yaml
 
 images:
-  - name: kustomization-container
+  - name: gksehddus202/app-with-argocd-img
     newName: nginx
     newTag: "1.25"
