@@ -75,7 +75,7 @@ jobs:
       env:
         DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ env.SHORT_SHA }}
       run: |
-        sed -i "s%image: .*%image: $DOCKER_IMAGE%" ./manifest/argocd-img-deployment.yaml
+        sed -i "s%image: .*%image: gksehddus202/app-with-argocd-img:${{ env.SHORT_SHA }}%" ./manifest/argocd-img-deployment.yaml
         
     - name: Commit and push changes
       run: |
