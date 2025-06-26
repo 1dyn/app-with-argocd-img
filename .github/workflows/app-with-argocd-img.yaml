@@ -55,6 +55,8 @@ jobs:
       
     - name: Build and push
       uses: docker/build-push-action@v6
+      env:
+        SHORT_SHA: ${{ env.SHORT_SHA }}
       with:
         context: .
         push: true
@@ -76,9 +78,9 @@ jobs:
         
     - name: Set up Image
       env:
-        DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:$SHORT_SHA
+        DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ env.SHORT_SHA }}
       run: |
-        sed -i "s%image: .*%image: gksehddus202/app-with-argocd-img:$SHORT_SHA%" ./manifest/argocd-img-deployment.yaml
+        sed -i "s%image: .*%image: $DOCKER_IMAGE%" ./manifest/argocd-img-deployment.yaml
         
     - name: Commit and push changes
       run: |
