@@ -55,12 +55,10 @@ jobs:
       
     - name: Build and push
       uses: docker/build-push-action@v6
-      env:
-        SHORT_SHA: ${{ env.SHORT_SHA }}
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:$SHORT_SHA
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ env.SHORT_SHA }}
 
   
   cd:
