@@ -71,6 +71,9 @@ jobs:
         ref: main
         token: ${{ secrets.GH_TOKEN }}
         
+    - name: Set short SHA
+      run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+        
     - name: Set up Image
       env:
         DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:$SHORT_SHA
